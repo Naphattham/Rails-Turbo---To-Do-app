@@ -1,0 +1,17 @@
+#chatapp {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  #room-list {
+    background-color: lightblue;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #message-list {
+    background-color: beige;
+    flex-grow: 1;
+  }
+  

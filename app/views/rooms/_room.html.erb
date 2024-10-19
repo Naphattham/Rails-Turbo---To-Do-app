@@ -1,0 +1,15 @@
+<div id="<%= dom_id room %>">
+  <%= turbo_frame_tag "messages" do %>
+    <% room.messages.each do |message| %>
+      <%= render message %>
+    <% end %>
+  <% end %>
+
+  <div class='new-message'>
+    <%= turbo_frame_tag "message-form" do %>
+      <%= render 'messages/form', room: room %>
+    <% end %>
+  </div>
+</div>
+
+<%= turbo_stream_from room %>

@@ -1,0 +1,26 @@
+<div class="categories-container">
+  <h1>Categories</h1>
+
+  <!-- Loop แสดงรายการหมวดหมู่ -->
+  <% @categories.each do |category| %>
+    <div class="category-card">
+      <h2><%= category.name %></h2>
+      <div class="category-actions">
+        <%= button_to 'Delete', category_path(category), method: :delete, data: { confirm: 'Are you sure?' }, class: 'delete-btn' %>
+        <%= link_to 'Edit', edit_category_path(category), class: 'edit-link' %>
+        <%= link_to '+', new_category_todo_path(category), class: 'add-todo-link' %>
+      </div>
+    </div>
+  <% end %>
+
+  <!-- ฟอร์มการสร้างหมวดหมู่ใหม่ -->
+  <div class="new-category-form">
+    <%= form_with(model: Category.new, local: true) do |form| %>
+      <div class="form-group">
+        <%= form.label :name, "Name" %>
+        <%= form.text_field :name %>
+      </div>
+      <%= form.submit "Create Category", class: 'create-category-btn' %>
+    <% end %>
+  </div>
+</div>
